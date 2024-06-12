@@ -18,7 +18,8 @@ target/
 *.iws
 *.iml
 *.ipr
-01-create-user.sql
+**resources
+
 
 ### NetBeans ###
 /nbproject/private/

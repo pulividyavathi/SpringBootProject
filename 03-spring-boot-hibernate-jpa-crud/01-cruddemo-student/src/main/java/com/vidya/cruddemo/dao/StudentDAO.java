@@ -1,2 +1,7 @@
-package com.vidya.cruddemo.dao;public interface StudentDAO {
+package com.vidya.cruddemo.dao;
+
+import com.vidya.cruddemo.entity.Student;
+
+public interface StudentDAO {
+    void save(Student theStudent);
 }
