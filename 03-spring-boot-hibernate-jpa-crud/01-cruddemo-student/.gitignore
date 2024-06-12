@@ -1,8 +1,8 @@
 HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
-/resources/
-#!**/src/main/**/target/
+
+!**/src/main/**/target/
 !**/src/test/**/target/
 
 ### STS ###
@@ -34,3 +34,4 @@ build/
 
 ### VS Code ###
 .vscode/
+/src/main/resources/
