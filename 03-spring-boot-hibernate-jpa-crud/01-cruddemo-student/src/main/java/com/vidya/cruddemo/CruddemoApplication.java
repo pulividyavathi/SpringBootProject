@@ -23,10 +23,38 @@ public class CruddemoApplication {
 //			readStudent(studentDAO);
 //			queryForStudents(studentDAO);
 //			queryForStudentsByLastName(studentDAO);
-			updateStudent(studentDAO);
+//			updateStudent(studentDAO);
+//			deleteStudent(studentDAO);
+			deleteAllStudents(studentDAO);
 
 		};
   }
+
+	private void deleteAllStudents(StudentDAO studentDAO) {
+		System.out.println("Deleting all students");
+		int numRowsDeleted=studentDAO.deleteAll();
+		System.out.println(numRowsDeleted);
+	}
+
+	private void deleteStudent(StudentDAO studentDAO) {
+		//		retrieve student based on the id: primary key
+		int studentId=3;
+		System.out.println("Deleting student with id: "+studentId);
+//		Student myStudent=studentDAO.findById(studentId);
+//		the above way doesn't work as we get detached instance exception, as the session gets closed and the
+//		state of the object becomes detached. 3 states transient, persistent, detached
+//		to make a detached instance to persisit use persist(create) or merge(update)
+//
+// //		delete the student
+		studentDAO.delete(studentId);
+
+//		display the list of students after deleting the student with the given student id
+		System.out.println("list of students after deleting the student with the given student id");
+
+		queryForStudents(studentDAO);
+
+
+	}
 
 	private void updateStudent(StudentDAO studentDAO) {
 //		retrieve student based on the id: primary key
