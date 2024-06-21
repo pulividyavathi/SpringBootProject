@@ -13,6 +13,48 @@
 
     <br><br>
     Last Name:<input type="text" th:field="*{lastName}"/>
+
+
+    <br><br>
+
+    Country:
+    <select th:field="*{country}">
+<!--        <option th:value="Brazil">Brazil</option>-->
+<!--        <option th:value="Germany">Germany</option>-->
+<!--        <option th:value="France">France</option>-->
+<!--        <option th:value="UK">UK</option>-->
+<!--        <option th:value="India">India</option>-->
+
+        <option th:each="tempCountry: ${countries}" th:value="${tempCountry}" th:text="${tempCountry}"/>
+
+
+    </select>
+
+    <br><br>
+
+    Favorite Programming Language:
+<!--    <input type="radio" th:field="*{favoriteLanguage}" th:value="Go">Go</input>-->
+<!--    <input type="radio" th:field="*{favoriteLanguage}" th:value="Java">Java</input>-->
+<!--    <input type="radio" th:field="*{favoriteLanguage}" th:value="Python">Python</input>-->
+<!--    <input type="radio" th:field="*{favoriteLanguage}" th:value="C">C</input>-->
+
+    <input type="radio" th:field="*{favoriteLanguage}"
+           th:each="tempLang : ${languages}"
+           th:value="${tempLang}"
+           th:text="${tempLang}"
+/>
+    <br><br>
+
+    Favorite Operating Systems:
+<!--    <input type="checkbox" th:field="*{operatingSystem}" th:value="Windows">Windows</input>-->
+<!--    <input type="checkbox" th:field="*{operatingSystem}" th:value="MacOS">Linux</input>-->
+<!--    <input type="checkbox" th:field="*{operatingSystem}" th:value="Linux">Linux</input>-->
+
+    <input type="checkbox" th:field="*{operatingSystem}"
+           th:each="tempSystem : ${systems}"
+           th:value="${tempSystem}"
+           th:text="${tempSystem}"
+    />
     <br><br>
     <input type="submit" value="Submit"/>
 
