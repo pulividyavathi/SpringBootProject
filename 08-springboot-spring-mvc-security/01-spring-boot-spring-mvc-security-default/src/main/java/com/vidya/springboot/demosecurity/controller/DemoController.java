@@ -9,4 +9,10 @@ public class DemoController {
     public  String showHome(){
         return "home";
     }
+
+//    add a request mappng to leaders
+@GetMapping("/leaders")
+public  String showLeaders(){
+    return "leaders";
+}
 }
