@@ -33,3 +33,4 @@ build/
 .vscode/
 /src/main/java/com/vidya/springboot/demosecurity/security/DemoSecurityConfig.java
 /src/main/resources/application.properties
+/sql-scripts/
