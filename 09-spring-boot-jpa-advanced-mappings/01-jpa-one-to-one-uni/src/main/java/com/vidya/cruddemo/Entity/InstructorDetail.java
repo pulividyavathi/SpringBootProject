@@ -2,6 +2,7 @@ package com.vidya.cruddemo.Entity;
 
 import jakarta.persistence.*;
 
+
 @Entity
 public class InstructorDetail {
 //    annotate the class as an entity and map to db talbe
