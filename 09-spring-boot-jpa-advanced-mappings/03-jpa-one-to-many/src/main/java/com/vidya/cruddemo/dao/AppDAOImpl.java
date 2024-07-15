@@ -109,4 +109,13 @@ public class AppDAOImpl implements AppDAO{
     public Course findCourseById(int theId) {
         return entityManager.find(Course.class,theId);
     }
+
+    @Override
+    @Transactional
+    public void deleteCourseById(int theId) {
+//        find course with id
+        Course tempCourse=entityManager.find(Course.class,theId);
+//        remove the course
+        entityManager.remove(tempCourse);
+    }
 }

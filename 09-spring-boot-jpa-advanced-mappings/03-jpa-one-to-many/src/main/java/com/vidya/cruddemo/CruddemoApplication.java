@@ -22,7 +22,7 @@ public class CruddemoApplication {
 		return runner->{
 //			createInstructor(appDAO);
 //			findInstructor(appDAO);
-			deleteInstructor(appDAO);
+//			deleteInstructor(appDAO);
 //			findInstructorDetail(appDAO);
 //			deleteInstructorDetail(appDAO);
 //            createInstructorWithCourse(appDAO);
@@ -31,10 +31,18 @@ public class CruddemoApplication {
 //			findInstructorWithCoursesJoinFetch(appDAO);
 //			updateInstructorByInstructor(appDAO);
 //			updateCourseByCourse(appDAO);
+			deleteCourse(appDAO);
 
 		};
 
 	   }
+
+	private void deleteCourse(AppDAO appDAO) {
+		int theId=10;
+		System.out.println("Deleting the course with id "+theId);
+		appDAO.deleteCourseById(theId);
+		System.out.println("DOne!");
+	}
 
 	private void updateCourseByCourse(AppDAO appDAO) {
 		int theId=10;
