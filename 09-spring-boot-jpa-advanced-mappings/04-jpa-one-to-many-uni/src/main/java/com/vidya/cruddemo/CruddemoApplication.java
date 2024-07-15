@@ -22,11 +22,19 @@ public class CruddemoApplication {
 	public CommandLineRunner commandLineRunner(AppDAO appDAO){
 		return runner->{
 //                  createCourseAndReviews(appDAO);
-				  retrieveCourseAndReviews(appDAO);
+//				  retrieveCourseAndReviews(appDAO);
+//			deleteCourseAndReviews(appDAO);
+			deleteCourse(
+					appDAO
+			);
 
 		};
 
 	   }
+
+	private void deleteCourseAndReviews(AppDAO appDAO) {
+		int theId=10;
+	}
 
 	private void retrieveCourseAndReviews(AppDAO appDAO) {
 		int theId=10;

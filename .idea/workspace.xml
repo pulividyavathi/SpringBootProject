@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c2a7e867-a393-46ad-80ea-006b5f79dfbc" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/09-spring-boot-jpa-advanced-mappings/03-jpa-one-to-many-uni/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/09-spring-boot-jpa-advanced-mappings/03-jpa-one-to-many-uni/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/09-spring-boot-jpa-advanced-mappings/03-jpa-one-to-many-uni/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/09-spring-boot-jpa-advanced-mappings/03-jpa-one-to-many-uni/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/09-spring-boot-jpa-advanced-mappings/03-jpa-one-to-many-uni/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/09-spring-boot-jpa-advanced-mappings/03-jpa-one-to-many-uni/src/main/java/com/vidya/cruddemo/CruddemoApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/09-spring-boot-jpa-advanced-mappings/03-jpa-one-to-many-uni/src/main/java/com/vidya/cruddemo/Entity/Course.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/09-spring-boot-jpa-advanced-mappings/03-jpa-one-to-many-uni/src/main/java/com/vidya/cruddemo/Entity/Instructor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/09-spring-boot-jpa-advanced-mappings/03-jpa-one-to-many-uni/src/main/java/com/vidya/cruddemo/Entity/InstructorDetail.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/09-spring-boot-jpa-advanced-mappings/03-jpa-one-to-many-uni/src/main/java/com/vidya/cruddemo/Entity/Review.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/09-spring-boot-jpa-advanced-mappings/03-jpa-one-to-many-uni/src/main/java/com/vidya/cruddemo/dao/AppDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/09-spring-boot-jpa-advanced-mappings/03-jpa-one-to-many-uni/src/main/java/com/vidya/cruddemo/dao/AppDAOImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/09-spring-boot-jpa-advanced-mappings/03-jpa-one-to-many-uni/src/test/java/com/vidya/cruddemo/CruddemoApplicationTests.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 8
+}]]></component>
+  <component name="ProjectId" id="2jIYqxkghJsbNqkP23RZFhDpxGK" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/vidyavathipuli/Documents/dev-spring-boot",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c2a7e867-a393-46ad-80ea-006b5f79dfbc" name="Changes" comment="" />
+      <created>1721076252311</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1721076252311</updated>
+      <workItem from="1721076253428" duration="168000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
