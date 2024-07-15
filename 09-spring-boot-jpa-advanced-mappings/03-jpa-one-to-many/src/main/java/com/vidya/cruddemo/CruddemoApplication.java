@@ -9,6 +9,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.List;
+
 @SpringBootApplication
 public class CruddemoApplication {
 
@@ -23,10 +25,61 @@ public class CruddemoApplication {
 //			deleteInstructor(appDAO);
 //			findInstructorDetail(appDAO);
 //			deleteInstructorDetail(appDAO);
-            createInstructorWithCourse(appDAO);
+//            createInstructorWithCourse(appDAO);
+//			findInstructorWithCourses(appDAO);
+//			findCoursesForInstructor(appDAO);
+			findInstructorWithCoursesJoinFetch(appDAO);
 		};
 
 	   }
+
+	private void findInstructorWithCoursesJoinFetch(AppDAO appDAO) {
+		int theId=1;
+		System.out.println("Finding instructor id: "+theId);
+
+		Instructor tempInstructor=appDAO.findInstructorByIdJoinFetch(theId);
+
+		System.out.println("tempInstructor "+tempInstructor);
+
+// we don't have to set the instructor with courses here, as the method already gives instructor with courses set
+
+//		get the courses
+		System.out.println("Fetching the associated courses "+tempInstructor.getCourses());
+		System.out.println("Done!");
+	}
+
+	private void findCoursesForInstructor(AppDAO appDAO) {
+		int theId=1;
+		System.out.println("Finding instructor id: "+theId);
+
+		Instructor tempInstructor=appDAO.findInstructorById(theId);
+
+		System.out.println("temp Instructor "+tempInstructor);
+
+		System.out.println("Finding courses for instructor id "+theId);
+		List<Course> courses=appDAO.findCoursesByInstructorId(theId);
+
+//		Set the courses -associate the objects
+		tempInstructor.setCourses(courses);
+
+//		get the courses
+		System.out.println("Fetching the associated courses "+tempInstructor.getCourses());
+//		so we do this manually, setting the courses and getting them instead of spring sending them directly with Eager loading
+//		we changed it to lazy, gave a query to execute , set the objects and get them. This allows customised retrieving of objects
+//		when needed.
+	}
+
+	private void findInstructorWithCourses(AppDAO appDAO) {
+		int theId=1;
+		System.out.println("Finding instructor id: "+theId);
+
+		Instructor tempInstructor=appDAO.findInstructorById(theId);
+
+		System.out.println("temp Instructor "+tempInstructor);
+		System.out.println("the associated courses "+tempInstructor.getCourses());
+		System.out.println("done!");
+
+	}
 
 	private void createInstructorWithCourse(AppDAO appDAO) {
 		//		create the instructor
