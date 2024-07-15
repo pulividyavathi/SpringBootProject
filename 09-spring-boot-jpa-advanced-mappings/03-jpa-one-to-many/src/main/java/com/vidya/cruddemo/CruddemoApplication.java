@@ -22,7 +22,7 @@ public class CruddemoApplication {
 		return runner->{
 //			createInstructor(appDAO);
 //			findInstructor(appDAO);
-//			deleteInstructor(appDAO);
+			deleteInstructor(appDAO);
 //			findInstructorDetail(appDAO);
 //			deleteInstructorDetail(appDAO);
 //            createInstructorWithCourse(appDAO);
@@ -30,7 +30,8 @@ public class CruddemoApplication {
 //			findCoursesForInstructor(appDAO);
 //			findInstructorWithCoursesJoinFetch(appDAO);
 //			updateInstructorByInstructor(appDAO);
-			updateCourseByCourse(appDAO);
+//			updateCourseByCourse(appDAO);
+
 		};
 
 	   }
