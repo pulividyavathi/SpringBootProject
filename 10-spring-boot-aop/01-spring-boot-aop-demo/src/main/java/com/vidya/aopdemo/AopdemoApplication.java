@@ -1,6 +1,9 @@
 package com.vidya.aopdemo;
 
 import com.vidya.aopdemo.dao.AccountDAO;
+import com.vidya.aopdemo.dao.MembershipDAO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,17 +18,26 @@ public class AopdemoApplication {
 
 
 	@Bean
-	public CommandLineRunner commandLineRunner(AccountDAO theAccountDAO){
-		return runner->{
-			 demoTheBeforeAdvice(theAccountDAO);
+	public CommandLineRunner commandLineRunner(AccountDAO theAccountDAO, MembershipDAO theMembershipDAO) {
+
+		return runner -> {
+
+			demoTheBeforeAdvice(theAccountDAO, theMembershipDAO);
 		};
 	}
 
-	private void demoTheBeforeAdvice(AccountDAO theAccountDAO) {
+	private void demoTheBeforeAdvice(AccountDAO theAccountDAO, MembershipDAO theMembershipDAO) {
 
-//		call the business method
-		theAccountDAO.addAccount();
+		Account account=new Account();
+
+		// call the business method
+		theAccountDAO.addAccount(account,true);
+
+		// call the membership business method
+		theMembershipDAO.addAccount();
 
 	}
 
 }
+
+
