@@ -36,6 +36,10 @@ public class AopdemoApplication {
 		// call the membership business method
 		theMembershipDAO.addAccount();
 
+		theAccountDAO.doWork();
+
+		theMembershipDAO.goToSleep();
+
 	}
 
 }
