@@ -16,6 +16,24 @@ import java.util.List;
 @Order(2)
 public class MyDemoLoggingAspect {
 
+    @AfterThrowing(
+            pointcut = "execution(* com.vidya.aopdemo.dao.AccountDAO.findAccounts(..))",
+            throwing = "theExc"
+    )
+    public void afterThrowingFindAccountsAdvice(JoinPoint joinPoint,Throwable theExc){
+
+//        print out which method we are advising on
+        String method=joinPoint.getSignature().toShortString();
+        System.out.println("\n====>>> Executing @AfterThrowing on method "+method);
+
+//        log the exception
+        System.out.println("\n====>>> The exception is "+theExc);
+
+
+
+
+    }
+
 //    add a new advice for @after returning on the findaccounts method
 
     @AfterReturning(
@@ -30,9 +48,29 @@ public class MyDemoLoggingAspect {
 //        print out the results of the method call
         System.out.println("\n====>>> result is "+result);
 
+//        let's post process the data..let's modify it
+
+//        convert the account names to uppercase
+        convertAccountNamesToUpperCase(result);
+
+//        print out the results of the method call
+        System.out.println("\n====>>> result is "+result);
+
     }
 
-     @Before("com.vidya.aopdemo.aspect.AopExpressions.forDaoPackageNoGetterSetter()")
+    private void convertAccountNamesToUpperCase(List<Account> result) {
+//        loop through constructs
+        for(Account tempAccount:result) {
+
+//        get uppercase version of account name
+            String theUpperName = tempAccount.getName().toUpperCase();
+
+//        update the name of the account
+            tempAccount.setName(theUpperName);
+        }
+    }
+
+    @Before("com.vidya.aopdemo.aspect.AopExpressions.forDaoPackageNoGetterSetter()")
     public void beforeAddAccountAdvice(JoinPoint theJoinPoint){
         System.out.println("\n====>>> Execution @Before advice on addAccount()");
 //        JoinPoint has metadata about method call

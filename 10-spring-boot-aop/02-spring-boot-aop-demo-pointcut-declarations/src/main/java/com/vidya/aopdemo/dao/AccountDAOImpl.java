@@ -39,9 +39,19 @@ public class AccountDAOImpl implements AccountDAO{
 
     @Override
     public List<Account> findAccounts() {
+        System.out.println("IN find accounts");
+        return findAccounts(false);
+    }
+
+    @Override
+    public List<Account> findAccounts(boolean tripWire) {
+//        for academic purposes  simulate an exception
+        if(tripWire==true){
+            throw new RuntimeException("No soup for you");
+        }
         List<Account> myAccounts=new ArrayList<>();
 
-//        createe asample accounts
+//        create a sample accounts
         Account account1=new Account("vidya","silver");
         Account account2=new Account("Vikram","Gold");
         Account account3=new Account("Sri","Bronze");
@@ -50,7 +60,7 @@ public class AccountDAOImpl implements AccountDAO{
         myAccounts.add(account1);
         myAccounts.add(account2);
         myAccounts.add(account3);
-        System.out.println("In findAccounts");
+        System.out.println("In findAccounts with param");
         return myAccounts;
     }
 
