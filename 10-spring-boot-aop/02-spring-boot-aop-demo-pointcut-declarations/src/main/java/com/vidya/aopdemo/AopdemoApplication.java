@@ -28,10 +28,11 @@ public class AopdemoApplication {
 
 	private void demoTheBeforeAdvice(AccountDAO theAccountDAO, MembershipDAO theMembershipDAO) {
 
-		Account account=new Account();
-
+		Account myAccount=new Account();
+        myAccount.setName("Vidya");
+		myAccount.setLevel("2");
 		// call the business method
-		theAccountDAO.addAccount(account,true);
+		theAccountDAO.addAccount(myAccount,true);
 
 		// call the membership business method
 		theMembershipDAO.addAccount();
