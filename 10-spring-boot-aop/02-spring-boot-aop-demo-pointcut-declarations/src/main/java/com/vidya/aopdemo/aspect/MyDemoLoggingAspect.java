@@ -2,6 +2,7 @@ package com.vidya.aopdemo.aspect;
 
 import com.vidya.aopdemo.Account;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
@@ -15,6 +16,47 @@ import java.util.List;
 @Aspect
 @Order(2)
 public class MyDemoLoggingAspect {
+
+    @Around("execution(* com.vidya.aopdemo.service.*.getFortune(..))")
+    public Object aroundGetFortune(ProceedingJoinPoint theProceedingJoinPoint) throws Throwable{
+//        print out method we are advising on
+        String method=theProceedingJoinPoint.getSignature().toShortString();
+        System.out.println("\n====>>> Executing @Around on method "+method);
+
+//        get being timestamp
+       long begin=System.currentTimeMillis();
+
+//        now, let's execute the method
+    Object result=null;
+    try {
+        result=theProceedingJoinPoint.proceed();
+    }
+    catch (Exception exc){
+//        log the exception
+        System.out.println(exc.getMessage());
+//        give user a custom message
+        result="Major accident! But no worries, your private AOP helicopter is on the way";
+
+    }
+
+//        get end timestamp
+        long end=System.currentTimeMillis();
+
+//        compute duration and display it
+        long duration=end-begin;
+        System.out.println("\n====> Duration: "+duration/1000.0+" seconds");
+
+        return result;
+
+    }
+
+    @After("execution(* com.vidya.aopdemo.dao.AccountDAO.findAccounts(..))")
+    public void afterFinallyFindAccountsAdvice(JoinPoint theJoinPoint){
+
+//        print out which method we are advising on
+        String method=theJoinPoint.getSignature().toShortString();
+        System.out.println("\n====>>> Executing @After on method "+method);
+    }
 
     @AfterThrowing(
             pointcut = "execution(* com.vidya.aopdemo.dao.AccountDAO.findAccounts(..))",

@@ -2,6 +2,7 @@ package com.vidya.aopdemo;
 
 import com.vidya.aopdemo.dao.AccountDAO;
 import com.vidya.aopdemo.dao.MembershipDAO;
+import com.vidya.aopdemo.service.TrafficFortuneService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
@@ -20,15 +21,59 @@ public class AopdemoApplication {
 
 
 	@Bean
-	public CommandLineRunner commandLineRunner(AccountDAO theAccountDAO, MembershipDAO theMembershipDAO) {
+	public CommandLineRunner commandLineRunner(AccountDAO theAccountDAO, MembershipDAO theMembershipDAO,
+											   TrafficFortuneService theTrafficFortuneService) {
 
 		return runner -> {
 
 //			demoTheBeforeAdvice(theAccountDAO, theMembershipDAO);
 //			demoTheAfterReturningAdvice(theAccountDAO);
-			demoTheAfterThrowingAdvice(theAccountDAO);
+//			demoTheAfterThrowingAdvice(theAccountDAO);
+//			demoTheAfterAdvice(theAccountDAO);
+//			demoTheAroundAdvice(theTrafficFortuneService);
+			demoTheAroundAdviceHandleException(theTrafficFortuneService);
+
 
 		};
+	}
+
+	private void demoTheAroundAdviceHandleException(TrafficFortuneService theTrafficFortuneService) {
+		System.out.println("\nMain Program: demoTheAroundAdviceHandleException");
+		System.out.println("Calling getFortune()");
+
+		boolean tripWire=true;
+		String data=theTrafficFortuneService.getFortune(tripWire);
+		System.out.println("\nMy Fortune is "+data);
+		System.out.println("Finished");
+	}
+
+	private void demoTheAroundAdvice(TrafficFortuneService theTrafficFortuneService) {
+		System.out.println("\nMain Program: demoTheAroundService");
+		System.out.println("Calling getFortune()");
+		String data=theTrafficFortuneService.getFortune();
+		System.out.println("\nMy Fortune is "+data);
+		System.out.println("Finished");
+	}
+
+	private void demoTheAfterAdvice(AccountDAO theAccountDAO) {
+
+//		call the method to find the accounts
+		List<Account> theAccounts=null;
+		try {
+//			add a boolean flag to simulate exceptions
+			boolean tripwire=false;
+			theAccounts=theAccountDAO.findAccounts(tripwire);
+		}
+		catch (Exception exc){
+			System.out.println("\n\nMain Program: ...caught exception: "+exc);
+
+		}
+
+//		display the accounts
+		System.out.println("\n\nMain Program: demoTheAfterThrowingAdvice");
+		System.out.println("----");
+		System.out.println(theAccounts);
+		System.out.println("\n");
 	}
 
 	private void demoTheAfterThrowingAdvice(AccountDAO theAccountDAO) {
