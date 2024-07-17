@@ -2,7 +2,12 @@ package com.vidya.aopdemo.dao;
 
 import com.vidya.aopdemo.Account;
 
+import java.util.List;
+
 public interface AccountDAO {
+
+//    add a new method: findAccounts()
+    List<Account> findAccounts();
     void addAccount(Account account,boolean vipFlag);
 
     boolean doWork();
@@ -16,5 +21,7 @@ public interface AccountDAO {
     public String getServiceCode();
 
     public void setServiceCode(String serviceCode) ;
+
+
 
 }
